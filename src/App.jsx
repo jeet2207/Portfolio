@@ -2,6 +2,16 @@ import "./App.css";
 import { useState, useRef, useEffect } from "react";
 import Lenis from "@studio-freight/lenis";
 
+import lightbulb1 from "./assets/my projects/Lightbulb/1.svg";
+import lightbulb2 from "./assets/my projects/Lightbulb/2.svg";
+import lightbulb3 from "./assets/my projects/Lightbulb/3.svg";
+import craftedq1 from "./assets/my projects/Craftedq/1.svg";
+import craftedq2 from "./assets/my projects/Craftedq/2.svg";
+import craftedq3 from "./assets/my projects/Craftedq/3.svg";
+import bloomcs1 from "./assets/my projects/Bloomcs/1.svg";
+import bloomcs2 from "./assets/my projects/Bloomcs/2.svg";
+import bloomcs3 from "./assets/my projects/Bloomcs/3.svg";
+
 /* =====================================================
    PROJECT DATA
    Portfolio projects displayed in slider and gallery
@@ -9,125 +19,34 @@ import Lenis from "@studio-freight/lenis";
 const projects = [
   {
     id: 1,
-    title: "Bloom Consulting Services",
-    category: "WordPress Agency Website",
+    title: "Lightbulb",
+    category: "WordPress Product Launch",
     description:
-      "Corporate WordPress site with custom Gutenberg blocks, fast performance and brand-led storytelling.",
-    images: [
-      "https://images.unsplash.com/photo-1460925895917-afdab827c52f",
-      "https://images.unsplash.com/photo-1551434678-e076c223a692",
-      "https://images.unsplash.com/photo-1498050108023-c5249f4df085",
-    ],
+      "A modern product landing page for startups, with conversion-focused design, clear storytelling and fast experience.",
+    images: [lightbulb1, lightbulb2, lightbulb3],
   },
   {
     id: 2,
-    title: "Azure DevOps Services",
-    category: "Managed WordPress Hosting",
+    title: "Craftedq",
+    category: "WordPress Studio Website",
     description:
-      "A managed WordPress setup with automated backups, staging, and cloud-ready deployment.",
-    images: [
-      "https://images.unsplash.com/photo-1516321318423-f06f85e504b3",
-      "https://images.unsplash.com/photo-1559028012-481c04fa702d",
-      "https://images.unsplash.com/photo-1519389950473-47ba0277781c",
-    ],
+      "A handcrafted agency site built for creative studios, visual storytelling and easy content updates.",
+    images: [craftedq1, craftedq2, craftedq3],
   },
   {
     id: 3,
-    title: "AWS Migration Services",
-    category: "WordPress Migration",
+    title: "Bloomcs",
+    category: "WordPress Consulting",
     description:
-      "Smooth WordPress migration to cloud hosting with speed tuning and zero downtime.",
-    images: [
-      "https://images.unsplash.com/photo-1496171367470-9ed9a91ea931",
-      "https://images.unsplash.com/photo-1516321497487-e288fb19713f",
-      "https://images.unsplash.com/photo-1522071820081-009f0129c71c",
-    ],
-  },
-  {
-    id: 4,
-    title: "HealthTech Platform",
-    category: "WP Membership Portal",
-    description:
-      "A secure WordPress membership portal with appointment booking and patient engagement features.",
-    images: [
-      "https://images.unsplash.com/photo-1557804506-669a67965ba0",
-      "https://images.unsplash.com/photo-1554415707-6e8cfc93fe23",
-      "https://images.unsplash.com/photo-1504384308090-c894fdcc538d",
-    ],
-  },
-  {
-    id: 5,
-    title: "Finance Dashboard",
-    category: "WooCommerce Analytics",
-    description:
-      "A WooCommerce analytics dashboard for business owners tracking sales, orders and customer insights.",
-    images: [
-      "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4",
-      "https://images.unsplash.com/photo-1504384308090-c894fdcc538d",
-      "https://images.unsplash.com/photo-1498050108023-c5249f4df085",
-    ],
-  },
-  {
-    id: 6,
-    title: "E-commerce Growth",
-    category: "WooCommerce Store",
-    description:
-      "A conversion-focused WooCommerce storefront with fast product browsing and checkout flow.",
-    images: [
-      "https://images.unsplash.com/photo-1522204507740-7d8fcae43e97",
-      "https://images.unsplash.com/photo-1512436991641-6745cdb1723f",
-      "https://images.unsplash.com/photo-1519337265831-281ec6cc8514",
-    ],
-  },
-  {
-    id: 7,
-    title: "Brand Refresh",
-    category: "WordPress Rebrand",
-    description:
-      "A brand refresh through a custom WordPress redesign, modern visuals and stronger UX.",
-    images: [
-      "https://images.unsplash.com/photo-1496317899792-9d7dbcd928a1",
-      "https://images.unsplash.com/photo-1519331379820-0440f25b7c54",
-      "https://images.unsplash.com/photo-1482192505345-5655af888cc4",
-    ],
-  },
-  {
-    id: 8,
-    title: "Enterprise Landing Page",
-    category: "WordPress Lead Site",
-    description:
-      "A WordPress landing site built for enterprise lead generation, trust and authority.",
-    images: [
-      "https://images.unsplash.com/photo-1498050108023-c5249f4df085",
-      "https://images.unsplash.com/photo-1519389950473-47ba0277781c",
-      "https://images.unsplash.com/photo-1460925895917-afdab827c52f",
-    ],
-  },
-  {
-    id: 9,
-    title: "Mobile App Prototype",
-    category: "Headless WP PWA",
-    description:
-      "A headless WordPress PWA experience built for fast mobile browsing and modern app-like interactions.",
-    images: [
-      "https://images.unsplash.com/photo-1522202176988-66273c2fd55f",
-      "https://images.unsplash.com/photo-1519389950473-47ba0277781c",
-      "https://images.unsplash.com/photo-1522071820081-009f0129c71c",
-    ],
-  },
-  {
-    id: 10,
-    title: "Startup Launch Kit",
-    category: "WordPress Launch Site",
-    description:
-      "A launch-ready WordPress experience with marketing pages, blog setup and analytics.",
-    images: [
-      "https://images.unsplash.com/photo-1498050108023-c5249f4df085",
-      "https://images.unsplash.com/photo-1516321318423-f06f85e504b3",
-      "https://images.unsplash.com/photo-1559028012-481c04fa702d",
-    ],
+      "A premium consultancy site designed to highlight services, case studies and lead capture.",
+    images: [bloomcs1, bloomcs2, bloomcs3],
   },
 ];
+
+const heroImages = projects
+  .flatMap((project) => project.images)
+  .sort(() => Math.random() - 0.5)
+  .slice(0, 6);
 
 const services = [
   {
@@ -184,6 +103,7 @@ function App() {
   const [activeProject, setActiveProject] = useState(null);
   const [activeImage, setActiveImage] = useState(0);
   const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
   const sliderRef = useRef(null);
 
   useEffect(() => {
@@ -272,10 +192,23 @@ function App() {
       <header className="navbar">
         <div className="container nav-inner">
           <a href="#" className="nav-brand">
-            <div className="logo-mark">J</div>
+            <div className="logo-mark logo-mark-large">
+              <svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden>
+                <defs>
+                  <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0%" stopColor="#ec4899" />
+                    <stop offset="100%" stopColor="#6366f1" />
+                  </linearGradient>
+                </defs>
+                <rect width="44" height="44" rx="10" fill="url(#g1)" />
+                <text x="50%" y="58%" textAnchor="middle" fill="#ffffff" fontSize="18" fontWeight="700" fontFamily="Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial">
+                  JT
+                </text>
+              </svg>
+            </div>
             <div className="logo-text">
               <span>Jitendra</span>
-              <small>WordPress Studio</small>
+              <small>WP Studio</small>
             </div>
           </a>
 
@@ -300,23 +233,9 @@ function App() {
         {/* Background Image Slider */}
         <div className="hero-bg-slider">
           <div className="hero-track">
-
-            {/* Original Images */}
-            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f" alt="" />
-            <img src="https://images.unsplash.com/photo-1551434678-e076c223a692" alt="" />
-            <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085" alt="" />
-            <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3" alt="" />
-            <img src="https://images.unsplash.com/photo-1559028012-481c04fa702d" alt="" />
-            <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c" alt="" />
-
-            {/* Duplicate Images For Infinite Loop Animation */}
-            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f" alt="" />
-            <img src="https://images.unsplash.com/photo-1551434678-e076c223a692" alt="" />
-            <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085" alt="" />
-            <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3" alt="" />
-            <img src="https://images.unsplash.com/photo-1559028012-481c04fa702d" alt="" />
-            <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c" alt="" />
-
+            { [...heroImages, ...heroImages].map((src, index) => (
+              <img key={`${src}-${index}`} src={src} alt="Project preview" />
+            )) }
           </div>
         </div>
 
@@ -328,7 +247,7 @@ function App() {
           </span>
 
           {/* Main Heading */}
-          <h1>
+          <h1 className="heading-gradient">
             Building premium
             <br />
             WordPress experiences.
@@ -366,7 +285,7 @@ function App() {
 
             <span>WORDPRESS STORIES</span>
 
-            <h2>
+            <h2 className="heading-gradient">
               WordPress Success Stories
             </h2>
 
@@ -400,7 +319,7 @@ function App() {
 
                   <div className="project-info">
                     <span>{project.category}</span>
-                    <h3>{project.title}</h3>
+                    <h3 className="heading-gradient">{project.title}</h3>
                   </div>
                 </div>
               ))}
@@ -425,9 +344,6 @@ function App() {
         <div className="container about-grid">
           <div className="about-left reveal slide-in-left">
             <div className="about-hero-card">
-              <div className="about-visual">
-                <div className="mark">J</div>
-              </div>
               <div className="about-copy-compact">
                 <span className="small-title">What I Build</span>
                 <h2 className="heading-gradient">Premium WordPress experiences for growth.</h2>
@@ -445,11 +361,11 @@ function App() {
 
             <div className="about-stats compact">
               <div className="stat-box small">
-                <h3>5+</h3>
+                <h3 className="heading-gradient">5+</h3>
                 <p>Years on WordPress</p>
               </div>
               <div className="stat-box small">
-                <h3>100+</h3>
+                <h3 className="heading-gradient">100+</h3>
                 <p>Sites launched</p>
               </div>
             </div>
@@ -459,7 +375,7 @@ function App() {
             <div className="service-panel">
               <div className="service-panel-head">
                 <span>Core WordPress services</span>
-                <h3>Modern WordPress solutions built around your business goals.</h3>
+                <h3 className="heading-gradient">Modern WordPress solutions built around your business goals.</h3>
               </div>
 
               <div className="service-grid-new">
@@ -467,7 +383,7 @@ function App() {
                   <div key={item.id} className="service-card reveal" style={{ animationDelay: `${0.2 * index}s` }}>
                     <div className="service-card-icon">{index + 1}</div>
                     <div className="service-card-body">
-                      <h3>{item.title}</h3>
+                      <h3 className="heading-gradient">{item.title}</h3>
                       <p>{item.description}</p>
                     </div>
                   </div>
@@ -483,7 +399,7 @@ function App() {
         <div className="container">
           <div className="section-head">
             <span>CLIENT FEEDBACK</span>
-            <h2>Trusted by teams and founders.</h2>
+            <h2 className="heading-gradient">Trusted by teams and founders.</h2>
           </div>
 
           <div className="testimonial-grid">
@@ -491,7 +407,7 @@ function App() {
               <div key={item.id} className="testimonial-card reveal slide-in-up">
                 <p>“{item.quote}”</p>
                 <div>
-                  <h3>{item.name}</h3>
+                  <h3 className="heading-gradient">{item.name}</h3>
                   <span>{item.role}</span>
                 </div>
               </div>
@@ -505,7 +421,7 @@ function App() {
         <div className="container contact-grid">
           <div className="contact-panel reveal slide-in-left">
             <span className="small-title">Let’s Talk</span>
-            <h2>Ready to build your next WordPress website?</h2>
+            <h2 className="heading-gradient">Ready to build your next WordPress website?</h2>
             <p>
               Send me a message on WhatsApp and let’s discuss your WordPress theme, store or plugin project.
             </p>
@@ -524,7 +440,7 @@ function App() {
               href="mailto:jeet@portfolio.com"
               className="contact-card contact-link reveal slide-in-left"
             >
-              <h3>Email</h3>
+              <h3 className="heading-gradient">Email</h3>
               <p>jeet@portfolio.com</p>
               <span>Tap to email instantly</span>
             </a>
@@ -532,12 +448,12 @@ function App() {
               href="tel:+919876543210"
               className="contact-card contact-link reveal slide-in-left"
             >
-              <h3>Phone</h3>
+              <h3 className="heading-gradient">Phone</h3>
               <p>+91 98765 43210</p>
               <span>Call or WhatsApp directly</span>
             </a>
             <div className="contact-card reveal slide-in-left">
-              <h3>Availability</h3>
+              <h3 className="heading-gradient">Availability</h3>
               <p>Mon - Fri, 10am - 7pm</p>
               <span>Quick response for project leads</span>
             </div>
@@ -571,7 +487,7 @@ function App() {
               ))}
             </div>
 
-            <h2>{activeProject.title}</h2>
+            <h2 className="heading-gradient">{activeProject.title}</h2>
             <p className="modal-category">{activeProject.category}</p>
             <p>{activeProject.description}</p>
 

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Mate+SC:wght@400;500;600;700;800&display=swap');
 
 *{
   margin:0;
@@ -11,12 +11,16 @@ html{
 }
 
 body{
-  font-family:'Inter',sans-serif;
+  font-family:'Mate SC', sans-serif;
   color:#111111;
   overflow-x:hidden;
   min-height:100vh;
   background: linear-gradient(135deg, #fce4ef 0%, #d9f7e8 32%, #fff8c5 65%, #e9d8ff 100%);
   background-attachment: fixed;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Luckiest Guy', cursive;
 }
 
 a{
@@ -161,9 +165,18 @@ a{
 
 /* Heading gradient utility - apply where needed */
 .heading-gradient{
-  background: linear-gradient(135deg, #f8c1dd, #d6f9d8, #fff8b5, #e7d5ff);
+  background: linear-gradient(90deg, #b91c1c 0%, #f43f5e 25%, #f59e0b 50%, #3b82f6 75%, #7c3aed 100%);
+  background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  color: transparent;
+  transition: background-position .45s ease, opacity .3s ease;
+  background-size: 200% 100%;
+  background-position: 0% 0%;
+}
+
+.heading-gradient:hover{
+  background-position: 100% 0;
 }
 
 .nav-links{
@@ -202,7 +215,22 @@ a{
 }
 
 .nav-actions{
-  display:flex;
+.logo-mark-large svg{display:block}
+.logo-text{font-size:18px;font-weight:800;letter-spacing:-0.5px}
+.logo-text span{display:block}
+.logo-text small{display:block;color:#a0aec0;font-size:11px;margin-top:2px}
+
+/* Header layout adjustments */
+.nav-links{flex:1;display:flex;justify-content:center;gap:24px}
+.nav-actions{display:flex;align-items:center}
+
+@media (max-width:760px){
+  .nav-inner{padding:10px 12px}
+  .nav-links{display:none}
+  .logo-text span{font-size:16px}
+  .logo-mark{width:48px;height:48px}
+  .nav-cta{padding:8px 10px;font-size:13px}
+}
   justify-content:flex-end;
 }
 
