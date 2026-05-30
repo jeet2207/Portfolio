@@ -424,20 +424,26 @@ function App() {
       <section className="about services-merged" id="about">
         <div className="container about-grid">
           <div className="about-left reveal slide-in-left">
-            <span className="small-title">What I Build</span>
-            <h2>WordPress websites designed to convert, scale and feel premium.</h2>
-            <p>
-              I deliver custom WordPress themes, WooCommerce storefronts and full site builds
-              that are fast, secure and easy to update for marketing teams.
-            </p>
-
-            <div className="about-pill-list">
-              <span>Theme design</span>
-              <span>WooCommerce</span>
-              <span>SEO & speed</span>
+            <div className="about-hero-card">
+              <div className="about-visual">
+                <div className="mark">J</div>
+              </div>
+              <div className="about-copy-compact">
+                <span className="small-title">What I Build</span>
+                <h2 className="heading-gradient">Premium WordPress experiences for growth.</h2>
+                <p>
+                  Custom themes, WooCommerce stores and performance-first sites that are
+                  straightforward to manage and built to convert.
+                </p>
+                <div className="about-pill-list">
+                  <span>Theme design</span>
+                  <span>WooCommerce</span>
+                  <span>SEO & Speed</span>
+                </div>
+              </div>
             </div>
 
-            <div className="about-stats">
+            <div className="about-stats compact">
               <div className="stat-box small">
                 <h3>5+</h3>
                 <p>Years on WordPress</p>
@@ -445,14 +451,6 @@ function App() {
               <div className="stat-box small">
                 <h3>100+</h3>
                 <p>Sites launched</p>
-              </div>
-              <div className="stat-box small">
-                <h3>60+</h3>
-                <p>WooCommerce builds</p>
-              </div>
-              <div className="stat-box small">
-                <h3>99%</h3>
-                <p>Client satisfaction</p>
               </div>
             </div>
           </div>
