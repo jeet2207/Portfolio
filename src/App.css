@@ -15,7 +15,7 @@ body{
   color:#111111;
   overflow-x:hidden;
   min-height:100vh;
-  background:linear-gradient(135deg, #fff1f7 0%, #f0fff4 45%, #ffffff 100%);
+  background: linear-gradient(135deg, #fce4ef 0%, #d9f7e8 32%, #fff8c5 65%, #e9d8ff 100%);
   background-attachment: fixed;
 }
 
@@ -133,7 +133,7 @@ a{
   display:flex;
   align-items:center;
   justify-content:center;
-  background:linear-gradient(135deg, #ec4899, #10b981);
+  background: linear-gradient(135deg, #f8c1dd, #d6f9d8, #fff8b5, #e7d5ff);
   color:#fff;
   font-size:22px;
   font-weight:800;
@@ -185,7 +185,7 @@ a{
   bottom:-8px;
   width:0;
   height:2px;
-  background:linear-gradient(135deg, #ec4899, #10b981);
+  background: linear-gradient(135deg, #f8c1dd, #d6f9d8, #fff8b5, #e7d5ff);
   transition:width .3s ease, left .3s ease;
 }
 
@@ -262,7 +262,7 @@ a{
   bottom:-10px;
   width:0;
   height:2px;
-  background:linear-gradient(135deg, #ec4899, #10b981);
+  background: linear-gradient(135deg, #f8c1dd, #d6f9d8, #fff8b5, #e7d5ff);
   transition:width .3s ease, left .3s ease;
 }
 
@@ -289,7 +289,7 @@ a{
 }
 
 .btn-outline.nav-cta:hover{
-  background:linear-gradient(135deg, #ec4899, #10b981);
+  background: linear-gradient(135deg, #f8c1dd, #d6f9d8, #fff8b5, #e7d5ff);
   color:#fff;
 }
 
@@ -386,9 +386,7 @@ a{
   line-height:1.04;
   font-weight:900;
   letter-spacing:-1.5px;
-  background:linear-gradient(135deg, #ec4899, #10b981);
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
+  color: #0f172a;
 }
 
 .hero h1 span{
@@ -741,9 +739,7 @@ SUCCESSFUL PROJECTS
   font-size:clamp(42px,5vw,70px);
   margin:18px 0;
   letter-spacing:-2px;
-  background:linear-gradient(135deg, #ec4899, #10b981);
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
+  color: #0f172a;
 }
 
 .section-head p{
@@ -758,9 +754,7 @@ SUCCESSFUL PROJECTS
 .contact-panel h2,
 .testimonial-card h3,
 .stat-box h3 {
-  background:linear-gradient(135deg, #ec4899, #10b981);
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
+  color: #0f172a;
 }
 
 .small-title{
@@ -836,9 +830,7 @@ SUCCESSFUL PROJECTS
   line-height:1.05;
 }
 
-.contact-panel p{
-  margin-top:20px;
-  max-width:560px;
+  color: #0f172a;
   color:#475569;
   line-height:1.85;
 }
@@ -1653,7 +1645,7 @@ MODAL
   display:flex;
   align-items:center;
   justify-content:center;
-  background:linear-gradient(135deg, #ec4899, #10b981);
+  background: linear-gradient(135deg, #f8c1dd, #d6f9d8, #fff8b5, #e7d5ff);
   color:#fff;
   font-weight:800;
   font-size:18px;
@@ -1718,7 +1710,7 @@ MODAL
   height:56px;
   min-width:56px;
   border-radius:50%;
-  background:linear-gradient(135deg, #ec4899, #10b981);
+  background: linear-gradient(135deg, #f8c1dd, #d6f9d8, #fff8b5, #e7d5ff);
   display:flex;
   align-items:center;
   justify-content:center;
@@ -1765,7 +1757,7 @@ MODAL
 .timeline-range-fill{
   height:100%;
   border-radius:999px;
-  background:linear-gradient(135deg, #ec4899, #10b981);
+  background: linear-gradient(135deg, #f8c1dd, #d6f9d8, #fff8b5, #e7d5ff);
 }
 
 .small-title{
@@ -1782,9 +1774,7 @@ MODAL
   line-height:1.08;
   margin:18px 0;
   letter-spacing:-1.5px;
-  background:linear-gradient(135deg, #ec4899, #10b981);
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
+  color: #0f172a;
 }
 
 .about p{
@@ -1839,15 +1829,7 @@ MODAL
 .stat-box h3{
   font-size:70px;
   line-height:1;
-
-  background:
-  linear-gradient(
-  135deg,
-  #2b94eb,
-  #0f5fff);
-
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
+  color: #0f172a;
 }
 
 .stat-box p{
