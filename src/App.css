@@ -2411,6 +2411,20 @@ footer::before{
 
       @media(max-width:768px){
 
+        .footer-brand {
+	flex-direction: column;
+	gap: 18px;
+	display: flex;
+	justify-content: center;
+	max-width: 100%;
+}
+
+        .footer-brand p {
+          color: #475569;
+          max-width: 100%;
+          line-height: 1.8;
+        }
+
         .contact-grid {
           grid-template-columns: 1fr;
           align-items: start;
