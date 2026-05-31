@@ -2411,6 +2411,16 @@ footer::before{
 
       @media(max-width:768px){
 
+        .footer-bottom {
+          color: #6b7280;
+          border-top: 1px solid #ec489929;
+          margin-top: 42px;
+          padding-top: 24px;
+          font-size: 14px;
+          width: 100%;
+          padding: 20px;
+        }
+
 
         .nav-brand {
           justify-content: center;
@@ -2424,14 +2434,14 @@ footer::before{
         }
 
         .nav-inner {
-      grid-template-columns: 1fr;
-      row-gap: 18px;
-      padding: 10px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-            .footer-brand {
+            grid-template-columns: 1fr;
+            row-gap: 18px;
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+          }
+                  .footer-brand {
           flex-direction: column;
           gap: 18px;
           display: flex;
