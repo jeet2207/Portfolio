@@ -2411,6 +2411,11 @@ footer::before{
 
       @media(max-width:768px){
 
+        .nav-actions {
+          justify-content: center;
+          display: flex;
+        }
+
         .testimonial-grid {
         grid-template-columns: repeat(1,1fr);
         gap: 22px;
@@ -2431,6 +2436,11 @@ footer::before{
             display: flex;
             justify-content: center;
           }
+          .nav-inner {
+          grid-template-columns: 1fr;
+          row-gap: 18px;
+          padding: 10px 10px;
+        }
 
         .project-hero{
           padding:100px 0;
