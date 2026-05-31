@@ -2415,7 +2415,9 @@ footer::before{
         .contact, .testimonials, .services, .about, .success-projects, .hero{
             padding: 20px 0;
           }
-
+          .whatsapp-link {
+            font-size: 10px;
+          }
 
 
 
