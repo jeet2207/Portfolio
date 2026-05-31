@@ -1,47 +1,11 @@
 import "./App.css";
 import { useState, useRef, useEffect } from "react";
 import Lenis from "@studio-freight/lenis";
+import ProjectDetail from "./ProjectDetail";
+import { Routes, Route, Link, useLocation } from "react-router-dom";
 
-import lightbulb1 from "./assets/my projects/Lightbulb/1.svg";
-import lightbulb2 from "./assets/my projects/Lightbulb/2.svg";
-import lightbulb3 from "./assets/my projects/Lightbulb/3.svg";
-import craftedq1 from "./assets/my projects/Craftedq/1.svg";
-import craftedq2 from "./assets/my projects/Craftedq/2.svg";
-import craftedq3 from "./assets/my projects/Craftedq/3.svg";
-import bloomcs1 from "./assets/my projects/Bloomcs/1.svg";
-import bloomcs2 from "./assets/my projects/Bloomcs/2.svg";
-import bloomcs3 from "./assets/my projects/Bloomcs/3.svg";
+import { projects } from "./projects";
 
-/* =====================================================
-   PROJECT DATA
-   Portfolio projects displayed in slider and gallery
-===================================================== */
-const projects = [
-  {
-    id: 1,
-    title: "Lightbulb",
-    category: "WordPress Product Launch",
-    description:
-      "A modern product landing page for startups, with conversion-focused design, clear storytelling and fast experience.",
-    images: [lightbulb1, lightbulb2, lightbulb3],
-  },
-  {
-    id: 2,
-    title: "Craftedq",
-    category: "WordPress Studio Website",
-    description:
-      "A handcrafted agency site built for creative studios, visual storytelling and easy content updates.",
-    images: [craftedq1, craftedq2, craftedq3],
-  },
-  {
-    id: 3,
-    title: "Bloomcs",
-    category: "WordPress Consulting",
-    description:
-      "A premium consultancy site designed to highlight services, case studies and lead capture.",
-    images: [bloomcs1, bloomcs2, bloomcs3],
-  },
-];
 
 const heroImages = projects
   .flatMap((project) => project.images)
@@ -95,16 +59,11 @@ const testimonials = [
 
 function App() {
 
-  /* =====================================================
-     STATE MANAGEMENT
-     activeProject -> currently opened project
-     activeImage   -> selected image in modal
-  ===================================================== */
-  const [activeProject, setActiveProject] = useState(null);
-  const [activeImage, setActiveImage] = useState(0);
-  const [lightboxOpen, setLightboxOpen] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+
   const sliderRef = useRef(null);
+
+  const location = useLocation();
 
   useEffect(() => {
     const lenis = new Lenis({
@@ -123,70 +82,49 @@ function App() {
     }
 
     requestAnimationFrame(raf);
+
     return () => lenis.destroy();
   }, []);
 
   useEffect(() => {
     const reveals = document.querySelectorAll(".reveal");
+
+    reveals.forEach((el) => {
+      el.classList.remove("revealed");
+    });
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             entry.target.classList.add("revealed");
-            observer.unobserve(entry.target);
           }
         });
       },
-      { threshold: 0.2 }
+      {
+        threshold: 0.15,
+      }
     );
 
     reveals.forEach((el) => observer.observe(el));
+
     return () => observer.disconnect();
-  }, []);
-
-  const openProject = (project) => {
-    setActiveProject(project);
-    setActiveImage(0);
-    setLightboxOpen(false);
-  };
-
-  const closeModal = () => {
-    setActiveProject(null);
-    setLightboxOpen(false);
-  };
-
-  const openLightbox = (index) => {
-    setActiveImage(index);
-    setLightboxOpen(true);
-  };
-
-  const closeLightbox = () => {
-    setLightboxOpen(false);
-  };
-
-  const showPrevImage = () => {
-    if (!activeProject) return;
-    setActiveImage((previous) =>
-      previous === 0 ? activeProject.images.length - 1 : previous - 1
-    );
-  };
-
-  const showNextImage = () => {
-    if (!activeProject) return;
-    setActiveImage((previous) =>
-      previous === activeProject.images.length - 1 ? 0 : previous + 1
-    );
-  };
+  }, [location.pathname]);
 
   const scrollSlider = (direction) => {
     if (!sliderRef.current) return;
+
     sliderRef.current.scrollBy({
       left: direction * 460,
       behavior: "smooth",
     });
   };
-
   return (
+
+    <Routes>
+ <Route
+    path="/portfolio/"
+    element={
     <>
       {/* ================= NAVBAR ================= */}
       <header className="navbar">
@@ -215,7 +153,6 @@ function App() {
           <nav className="nav-links">
             <a href="#work">Work</a>
             <a href="#services">Services</a>
-            <a href="#about">About</a>
             <a href="#contact">Contact</a>
           </nav>
 
@@ -255,8 +192,52 @@ function App() {
 
           {/* Hero Description */}
           <p>
-            I build custom WordPress themes, WooCommerce stores and performance-first sites
-            that help businesses launch faster and convert better.
+            I am a freelance{" "}
+            <span className="gradient-text">
+              WordPress Developer
+            </span>{" "}
+            with experience in building dynamic, responsive, and high-performance websites.
+            I personally handle every project from{" "}
+            <span className="gradient-text">
+              frontend design
+            </span>{" "}
+            to{" "}
+            <span className="gradient-text">
+              backend development
+            </span>
+            , ensuring quality and attention to detail.
+
+            My expertise includes{" "}
+            <span className="gradient-text">
+              Gutenberg Block Development
+            </span>
+            ,{" "}
+            <span className="gradient-text">
+              Advanced Custom Fields (ACF)
+            </span>
+            ,{" "}
+            <span className="gradient-text">
+              WooCommerce
+            </span>
+            , Elementor, Oxygen Builder, and custom WordPress solutions.
+
+            I specialize in creating clean, modern user interfaces with{" "}
+            <span className="gradient-text">
+              advanced CSS
+            </span>{" "}
+            and also work with{" "}
+            <span className="gradient-text">
+              Bootstrap
+            </span>{" "}
+            and{" "}
+            <span className="gradient-text">
+              Tailwind CSS
+            </span>{" "}
+            for scalable layouts.
+
+            Having successfully completed numerous projects across different industries,
+            I focus on delivering reliable, optimized, and user-friendly websites tailored
+            to each client's unique business needs.
           </p>
 
           {/* CTA Buttons */}
@@ -306,24 +287,24 @@ function App() {
               ‹
             </button>
 
-            <div className="projects-slider" ref={sliderRef}>
-              {projects.map((project) => (
-                <div
-                  key={project.id}
-                  className="project-slide reveal slide-in-left"
-                  onClick={() => openProject(project)}
-                >
-                  <div className="project-thumb">
-                    <img src={project.images[0]} alt={project.title} />
-                  </div>
-
-                  <div className="project-info">
-                    <span>{project.category}</span>
-                    <h3 className="heading-gradient">{project.title}</h3>
-                  </div>
+           <div className="projects-slider" ref={sliderRef}>
+            {projects.map((project) => (
+              <Link
+              to={`/portfolio/projects/${project.slug}`}
+                key={project.id}
+                className="project-slide reveal slide-in-left"
+              >
+                <div className="project-thumb">
+                  <img src={project.images[0]} alt={project.title} />
                 </div>
-              ))}
-            </div>
+
+                <div className="project-info">
+                  <span>{project.category}</span>
+                  <h3 className="heading-gradient">{project.title}</h3>
+                </div>
+              </Link>
+            ))}
+          </div>
 
             <button
               type="button"
@@ -461,86 +442,9 @@ function App() {
         </div>
       </section>
 
-      {activeProject && (
-        <div className="project-modal" onClick={closeModal}>
-          <div className="modal-content" onClick={(event) => event.stopPropagation()}>
-            <button className="close-btn" onClick={closeModal} aria-label="Close project details">
-              ×
-            </button>
 
-            <div className="modal-image" onClick={() => openLightbox(activeImage)}>
-              <img
-                src={activeProject.images[activeImage]}
-                alt={`${activeProject.title} preview`}
-              />
-            </div>
-
-            <div className="modal-gallery">
-              {activeProject.images.map((image, index) => (
-                <img
-                  key={image}
-                  src={image}
-                  alt={`${activeProject.title} thumbnail ${index + 1}`}
-                  className={index === activeImage ? "active-thumb" : ""}
-                  onClick={() => openLightbox(index)}
-                />
-              ))}
-            </div>
-
-            <h2 className="heading-gradient">{activeProject.title}</h2>
-            <p className="modal-category">{activeProject.category}</p>
-            <p>{activeProject.description}</p>
-
-            <div className="modal-actions">
-              <a href="#contact" className="btn">Request Quote</a>
-              <button type="button" className="btn-outline" onClick={closeModal}>
-                Close
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
-
-      {lightboxOpen && activeProject && (
-        <div className="lightbox-overlay" onClick={closeLightbox}>
-          <div className="lightbox-frame" onClick={(event) => event.stopPropagation()}>
-            <button className="lightbox-close" onClick={closeLightbox} aria-label="Close lightbox">
-              ×
-            </button>
-            <div className="lightbox-gallery">
-              <button className="lightbox-arrow prev" onClick={showPrevImage} aria-label="Previous image">
-                ‹
-              </button>
-              <div className="lightbox-main">
-                <img
-                  className="lightbox-photo"
-                  src={activeProject.images[activeImage]}
-                  alt={`${activeProject.title} fullscreen`}
-                />
-                <div className="lightbox-caption">
-                  {activeProject.title} — Image {activeImage + 1} of {activeProject.images.length}
-                </div>
-              </div>
-              <button className="lightbox-arrow next" onClick={showNextImage} aria-label="Next image">
-                ›
-              </button>
-            </div>
-            <div className="lightbox-thumbs">
-              {activeProject.images.map((image, index) => (
-                <button
-                  key={image}
-                  type="button"
-                  className={`lightbox-thumb ${index === activeImage ? "active-thumb" : ""}`}
-                  onClick={() => setActiveImage(index)}
-                  aria-label={`Show image ${index + 1}`}
-                >
-                  <img src={image} alt={`${activeProject.title} thumbnail ${index + 1}`} />
-                </button>
-              ))}
-            </div>
-          </div>
-        </div>
-      )}
+    
+      
 
       <a
         className="whatsapp-link"
@@ -568,12 +472,22 @@ function App() {
           </div>
         </div>
         <div className="footer-bottom">
-          © 2026 Jeet Kumar. All Rights Reserved.
+          © 2026 Jitendra Thakre. All Rights Reserved.
         </div>
-      </footer>
+           </footer>
 
     </>
+      }
+    />
+
+    <Route
+      path="/portfolio/projects/:slug"
+      element={<ProjectDetail />}
+    />
+
+  </Routes>
   );
+  
 }
 
 export default App;
