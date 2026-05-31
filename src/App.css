@@ -2411,6 +2411,22 @@ footer::before{
 
       @media(max-width:768px){
 
+
+        .contact, .testimonials, .services, .about, .success-projects, .hero{
+            padding: 20px 0;
+          }
+
+
+
+
+          .about-hero-card, .service-panel {
+            padding: 20px;
+          }
+
+        .about-left, .about-right {
+            padding: 0;
+          }
+
         .footer-bottom {
           color: #6b7280;
           border-top: 1px solid #ec489929;
