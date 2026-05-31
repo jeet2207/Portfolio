@@ -2410,6 +2410,11 @@ footer::before{
       }
 
       @media(max-width:768px){
+
+        h1,h2{
+          letter-spacing:1px !important;
+        }
+        
           .services-merged .about-grid {
           display: flex;
           flex-direction: column;
