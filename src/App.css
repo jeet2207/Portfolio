@@ -2411,6 +2411,13 @@ footer::before{
 
       @media(max-width:768px){
 
+        .contact-grid {
+          grid-template-columns: 1fr;
+          align-items: start;
+          gap: 26px;
+          display: grid;
+        }
+
         .nav-actions {
           justify-content: center;
           display: flex;
