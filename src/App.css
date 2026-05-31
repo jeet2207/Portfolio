@@ -2411,6 +2411,13 @@ footer::before{
 
       @media(max-width:768px){
 
+        .testimonial-grid {
+        grid-template-columns: repeat(1,1fr);
+        gap: 22px;
+        margin-top: 30px;
+        display: grid;
+      }
+
         .nav-brand {
         align-items: center;
         gap: 12px;
